@@ -28,7 +28,6 @@ bot = commands.Bot(
 
 @bot.command()
 async def dream(ctx, *, prompt):
-    """Generate an image from a text prompt using the stable-diffusion model"""
     msg = await ctx.send(f"“{prompt}”\n> Generating...")
     answers = stability_api.generate(prompt=prompt)
     for resp in answers:
