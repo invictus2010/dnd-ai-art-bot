@@ -13,7 +13,7 @@ import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 load_dotenv()
 
 stability_api = client.StabilityInference(
-    key=os.environ['STABLE_DIFFUSION_TOKEN'], 
+    key=os.environ['STABLE_DIFFUSION_TOKEN'],
     verbose=True,
 )
 
@@ -37,7 +37,8 @@ async def dream(ctx, *, prompt):
                 warnings.warn(
                     "Your request activated the API's safety filters and could not be processed."
                     "Please modify the prompt and try again.")
-                 msg = await ctx.send("You have triggered the filter, please try again")
+                msg = await ctx.send(
+                    "You have triggered the filter, please try again")
             if artifact.type == generation.ARTIFACT_IMAGE:
                 img = Image.open(io.BytesIO(artifact.binary))
                 arr = io.BytesIO(artifact.binary)
@@ -46,5 +47,6 @@ async def dream(ctx, *, prompt):
                 file = discord.File(arr, filename='art.png')
                 await msg.edit(content=f"“{prompt}” \n")
                 await ctx.send(file=file)
+
 
 bot.run(os.environ["DISCORD_TOKEN"])
