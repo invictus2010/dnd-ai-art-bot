@@ -51,7 +51,7 @@ async def dream(ctx, *, prompt):
 @bot.command()
 async def load(ctx, *, prompt):
     msg = await ctx.send(f"“{prompt}”\n> Generating...")
-    answers = stability_api.generate(prompt=prompt, width=738, height= 251)
+    answers = stability_api.generate(prompt=prompt, width=1472, height= 512)
     for resp in answers:
         for artifact in resp.artifacts:
             if artifact.finish_reason == generation.FILTER:
