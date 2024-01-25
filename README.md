@@ -1,3 +1,5 @@
+# Note: Needs refactoring for new Stability API!
+
 # DND AI Art Bot
 A Discord bot that is compatible with Stable Diffusion's Dreamstudio. 
 
